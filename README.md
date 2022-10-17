@@ -27,7 +27,7 @@ However, developing and supporting this project is hard work and costs real mone
 If you would like to contribute/improve a translation:
 
  1. Visit our [Transifex project page](https://www.transifex.com/chrisballinger/chatsecure/) and make an account if you don't have one already.
- 2. Go to the resources subsites `AppStore.strings` & `Localizable.strings` to add a new language or improve an existing translation. 
+ 2. Go to the resources subsites `AppStore.strings` & `Localizable.strings` to add a new language or improve an existing translation.
  3. [Open an issue on Github](https://github.com/ChatSecure/ChatSecure-iOS/issues) notifying us of your translation.
 
 
@@ -46,29 +46,29 @@ There's a more [full list of OTR clients on Wikipedia](https://en.wikipedia.org/
 ## Build Instructions
 
 You'll need [CocoaPods](http://cocoapods.org) installed for most of our dependencies.
-    
+
     $ gem install cocoapods
-    
+
 Download the source code and **don't forget** to pull down all of the submodules as well.
 
     $ git clone https://github.com/ChatSecure/ChatSecure-iOS.git
     $ cd ChatSecure-iOS/
     $ git submodule update --init --recursive
-    
+
 Now you'll need to build the dependencies.
-    
+
     $ bash ./Submodules/CPAProxy/scripts/build-all.sh
     $ bash ./Submodules/OTRKit/scripts/build-all.sh
     $ pod repo update
     $ pod install
-    
+
 Next you'll need to create your own version of environment-specific data. Make a copy of `Secrets-template.plist` as `Secrets.plist`:
 
     $ cp OTRResources/Secrets-template.plist OTRResources/Secrets.plist
-    
+
 You'll need to manually change the Team ID under Project -> Targets -> ChatSecure -> Signing. The old .xcconfig method doesn't seem to work well anymore.
 
-Open `ChatSecure.xcworkspace` in Xcode and build. 
+Open `ChatSecure.xcworkspace` in Xcode and build.
 
 *Note*: **Don't open the `.xcodeproj`** because we use Cocoapods now!
 
@@ -87,23 +87,23 @@ Thank you for your interest in contributing to ChatSecure! To avoid potential le
 
 
 	Software License Agreement (GPLv3+)
-	
+
 	Copyright (c) 2015, Chris Ballinger. All rights reserved.
-	
+
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
 	(at your option) any later version.
-	
+
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
-	
+
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-If you would like to relicense this code to distribute it on the App Store, 
+If you would like to relicense this code to distribute it on the App Store,
 please contact me at [chris@chatsecure.org](mailto:chris@chatsecure.org).
 
 ## Third-party Libraries
@@ -116,14 +116,14 @@ The following dependencies are bundled with the ChatSecure, but are under
 terms of a separate license:
 
 * [libsignal-protocol-c](https://github.com/WhisperSystems/libsignal-protocol-c) - Provides [Signal Protocol](https://en.wikipedia.org/wiki/Signal_Protocol) support for OMEMO.
-* [OTRKit](https://github.com/chatsecure/otrkit) - Objective-C libotr wrapper library for OTR encryption [![Build Status](https://travis-ci.org/ChatSecure/OTRKit.svg?branch=master)](https://travis-ci.org/ChatSecure/OTRKit)
-	* [libotr](https://otr.cypherpunks.ca/) - provides the core message encryption capabilities
+* [OTRKit](https://github.com/otrv4/otrkit) - Objective-C libotr wrapper library for OTR encryption [![Build Status](https://travis-ci.org/ChatSecure/OTRKit.svg?branch=master)](https://travis-ci.org/ChatSecure/OTRKit)
+	* [libotr-ng](https://github.com/otrv4/libotr-ng) - provides the core message encryption capabilities
 	* [libgcrypt](https://www.gnu.org/software/libgcrypt/) - handles core libotr encryption routines
 	* [libgpg-error](http://www.gnupg.org/related_software/libgpg-error/) - error codes used by libotr
 * [CPAProxy](https://github.com/ursachec/CPAProxy) - Objective-C Tor Wrapper Framework for iOS [![Build Status](https://travis-ci.org/ursachec/CPAProxy.svg?branch=master)](https://travis-ci.org/ursachec/CPAProxy)
 	* [OpenSSL](https://www.openssl.org) - crypto primitives required by Tor
 	* [libevent](http://libevent.org) - Tor i/o dependency
-	* [Tor](https://www.torproject.org) - internet anonymity framework 
+	* [Tor](https://www.torproject.org) - internet anonymity framework
 * [XMPPFramework](https://github.com/robbiehanson/XMPPFramework) - XMPP support
 * [YapDatabase](https://github.com/yapstudios/YapDatabase) - YapDatabase is a pretty awesome key/value/collection store built atop sqlite for iOS & Mac.
 	* [SQLCipher](https://www.zetetic.net/sqlcipher/) - full database encryption for [sqlite](http://sqlite.org)
